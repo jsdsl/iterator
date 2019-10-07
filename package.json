@@ -1,7 +1,7 @@
 {
-	"name": "<name>",
+	"name": "@jsdsl/iterator",
 	"version": "0.1.0",
-	"description": "<desc>",
+	"description": "A collection of classes that allow iteration over some predefined collection of elements.",
 	"main": "js/main",
 	"types": ".d.ts/main",
 	"scripts": {
@@ -10,15 +10,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/<github_org>/<base_name>.git"
+		"url": "git+https://github.com/jsdsl/iterator.git"
 	},
 	"keywords": [],
 	"author": "Trevor Sears <trevorsears.main@gmail.com> (http://trevorsears.io/)",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
-		"url": "https://github.com/<github_org>/<base_name>/issues"
+		"url": "https://github.com/jsdsl/iterator/issues"
 	},
-	"homepage": "https://github.com/<github_org>/<base_name>#readme",
+	"homepage": "https://github.com/jsdsl/iterator#readme",
 	"devDependencies": {
 		"typescript": "latest",
 		"tslint": "latest",

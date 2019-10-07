@@ -2,6 +2,9 @@
 	"name": "@jsdsl/iterator",
 	"version": "0.1.0",
 	"description": "A collection of classes that allow iteration over some predefined collection of elements.",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "js/main",
 	"types": ".d.ts/main",
 	"scripts": {

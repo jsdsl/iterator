@@ -1,25 +1,27 @@
 /*
  *	Created by Trevor Sears <trevorsears.main@gmail.com>.
  *	7:13 PM -- October 06th, 2019.
- *	Project: JSDSL - Iterator
+ *	Project: @jsdsl/iterator
  */
+
+import { Iterable as JSDSLIterable } from "./iterable";
 
 /**
  * An interface representing the general form of a type that can iterate over some collection of elements of type E.
  * 
  * @author Trevor Sears <trevorsears.main@gmail.com>
- * @version v0.1.0
+ * @version v0.2.0
  * @since v0.1.0
  */
-export interface Iterator<E> {
+export interface Iterator<E> extends JSDSLIterable<E> {
 	
 	/**
 	 * Returns true if a call to {@link #next} would return a valid and meaningful result after calling this method.
 	 *
 	 * A 'valid and meaningful result' entails that the result is an actual element of the underlying structure that this
 	 * AbstractIterator is iterating over. This is to help distinguish from undefined values that were actually present
-	 * in the underlying structure versus the undefined value that is returned from #next when all other valid results
-	 * are exhausted.
+	 * in the underlying structure versus the undefined value that is returned from {@link #next} when all other valid
+	 * results are exhausted.
 	 *
 	 * @return true if a call to {@link #next} would return a valid and meaningful result.
 	 */
@@ -42,9 +44,9 @@ export interface Iterator<E> {
 	forEach(callback: (element: E) => any): void;
 	
 	/**
-	 * Removes and returns the last element returned by the #next() method from the underlying data structure.
+	 * Removes and returns the last element returned by the {@link #next} method from the underlying data structure.
 	 *
-	 * @return The last element returned by the #next() method.
+	 * @return The last element returned by the {@link #next} method.
 	 */
 	remove?(): E | undefined;
 	
@@ -55,18 +57,10 @@ export interface Iterator<E> {
 	reset?(): void;
 	
 	/**
-	 * Returns an instance of an IterableIterator that allows 'this' to be iterable using the baked-in 'for...of'
-	 * syntax, rather than more verbose iteration (i.e. using a 'while' loop).
-	 *
-	 * @return An instance of an IterableIterator.
-	 */
-	[Symbol.iterator](): IterableIterator<E>;
-	
-	/**
 	 * This method is simply an ease-of-understanding alias method for the [Symbol.iterator] method.
 	 *
 	 * @return An instance of an IterableIterator.
-	 * @see Iterator#[Symbol.iterator]
+	 * @see Iterable#[Symbol.iterator]	
 	 */
 	getIterableIterator(): IterableIterator<E>;
 	

@@ -1,10 +1,11 @@
 import { Iterator as JSDSLIterator } from "./iterator";
-export declare abstract class AbstractIterator<E> implements JSDSLIterator<E> {
+import { AbstractIterable } from "./abstract-iterable";
+export declare abstract class AbstractIterator<E> extends AbstractIterable<E> implements JSDSLIterator<E> {
     abstract hasNext(): boolean;
     abstract next(): E | undefined;
     forEach(callback: (element: E) => void): void;
     remove(): E | undefined;
     reset(): void;
-    [Symbol.iterator](): IterableIterator<E>;
+    iterator(): JSDSLIterator<E>;
     getIterableIterator(): IterableIterator<E>;
 }

@@ -1,7 +1,7 @@
 /*
  *	Created by Trevor Sears <trevorsears.main@gmail.com>.
  *	7:45 PM -- October 06th, 2019.
- *	Project: JSDSL - Iterator
+ *	Project: @jsdsl/iterator
  */
 
 import { Iterator as JSDSLIterator } from "./iterator";

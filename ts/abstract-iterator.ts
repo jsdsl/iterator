@@ -1,27 +1,28 @@
 /*
  *	Created by Trevor Sears <trevorsears.main@gmail.com>.
  *	7:43 PM -- October 06th, 2019.
- *	Project: JSDSL - Iterator
+ *	Project: @jsdsl/iterator
  */
 
 import { Iterator as JSDSLIterator } from "./iterator";
+import { AbstractIterable } from "./abstract-iterable";
 
 /**
  * An abstract implementation of the JSDSL {@link Iterator} interface.
  * 
  * @author Trevor Sears <trevorsears.main@gmail.com>
- * @version v0.1.0
+ * @version v0.2.0
  * @since v0.1.0
  */
-export abstract class AbstractIterator<E> implements JSDSLIterator<E> {
+export abstract class AbstractIterator<E> extends AbstractIterable<E> implements JSDSLIterator<E> {
 	
 	/**
 	 * Returns true if a call to {@link #next} would return a valid and meaningful result after calling this method.
 	 * 
 	 * A 'valid and meaningful result' entails that the result is an actual element of the underlying structure that
 	 * this AbstractIterator is iterating over. This is to help distinguish from undefined values that were actually
-	 * present in the underlying structure versus the undefined value that is returned from #next when all other valid
-	 * results are exhausted.
+	 * present in the underlying structure versus the undefined value that is returned from {@link #next} when all other
+	 * valid results are exhausted.
 	 *
 	 * @return true if a call to {@link #next} would return a valid and meaningful result.
 	 */
@@ -48,16 +49,16 @@ export abstract class AbstractIterator<E> implements JSDSLIterator<E> {
 	}
 	
 	/**
-	 * Removes and returns the last element returned by the #next() method from the underlying data structure.
+	 * Removes and returns the last element returned by the {@link #next} method from the underlying data structure.
 	 * 
 	 * Note if this method is not overridden in implementing child classes, the `#remove` method will throw an error,
 	 * with a warning that the method is not supported for the current implementation.
 	 *
-	 * @return The last element returned by the #next() method.
+	 * @return The last element returned by the {@link #next} method.
 	 */
 	public remove(): E | undefined {
 		
-		throw new Error("ERR | #remove() operation is not supported for this implementation of AbstractIterator.");
+		throw new Error("ERR | #remove operation is not supported for this implementation of AbstractIterator.");
 		
 	}
 	
@@ -70,17 +71,31 @@ export abstract class AbstractIterator<E> implements JSDSLIterator<E> {
 	 */
 	public reset(): void {
 		
-		throw new Error("ERR | #reset() operation is not supported for this implementation of AbstractIterator.");
+		throw new Error("ERR | #reset operation is not supported for this implementation of AbstractIterator.");
 		
 	}
 	
 	/**
-	 * Returns an instance of an IterableIterator that allows 'this' to be iterable using the baked-in 'for...of'
-	 * syntax, rather than more verbose iteration (i.e. using a 'while' loop).
+	 * Returns an Iterator over the contents of this AbstractIterator.
+	 * 
+	 * Because of the fact that this class is in-and-of-itself an Iterator, this method simply returns 'this'. This is
+	 * simply a formality so that this class will conform to the {@link Iterable} interface.
+	 * 
+	 * @return An Iterator over the contents of this AbstractIterator.
+	 */
+	public iterator(): JSDSLIterator<E> {
+		
+		return this;
+		
+	}
+	
+	/**
+	 * This method is simply an ease-of-understanding alias method for the [Symbol.iterator] method.
 	 *
 	 * @return An instance of an IterableIterator.
+	 * @see AbstractIterator#[Symbol.iterator]
 	 */
-	public [Symbol.iterator](): IterableIterator<E> {
+	public getIterableIterator(): IterableIterator<E> {
 		
 		return new class implements IterableIterator<E> {
 			
@@ -110,18 +125,6 @@ export abstract class AbstractIterator<E> implements JSDSLIterator<E> {
 			}
 			
 		}(this);
-		
-	}
-	
-	/**
-	 * This method is simply an ease-of-understanding alias method for the [Symbol.iterator] method.
-	 *
-	 * @return An instance of an IterableIterator.
-	 * @see AbstractIterator#[Symbol.iterator]
-	 */
-	public getIterableIterator(): IterableIterator<E> {
-		
-		return this[Symbol.iterator]();
 		
 	}
 	

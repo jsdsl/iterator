@@ -1,7 +1,7 @@
 {
 	"name": "@jsdsl/iterator",
-	"version": "0.2.0",
-	"description": "A collection of classes that allow iteration over some predefined collection of elements.",
+	"version": "1.0.0",
+	"description": "A collection of classes that allow iteration over a predefined collection of elements.",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -19,7 +19,7 @@
 		"iteration",
 		"iterator"
 	],
-	"author": "Trevor Sears <trevorsears.main@gmail.com> (http://trevorsears.io/)",
+	"author": "Trevor Sears <trevor@trevorsears.com> (https://trevorsears.com/)",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
 		"url": "https://github.com/jsdsl/iterator/issues"

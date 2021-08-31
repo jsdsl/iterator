@@ -1,5 +1,5 @@
 /*
- *	Created by Trevor Sears <trevorsears.main@gmail.com>.
+ *	Created by Trevor Sears <trevor@trevorsears.com>.
  *	8:48 PM -- June 16th, 2019.
  *	Project: @jsdsl/iterator
  */

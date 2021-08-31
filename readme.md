@@ -1,5 +1,5 @@
 # JSDSL - Iterator
-A collection of classes that allow iteration over some predefined collection of elements.
+A collection of classes that allow iteration over a predefined collection of elements.
 
 ### [Find @jsdsl/iterator on NPM.](https://www.npmjs.com/package/@jsdsl/iterator)
 
@@ -80,4 +80,4 @@ See the [wiki](https://github.com/jsdsl/iterator/wiki) for full documentation.
 ## License
 @jsdsl/iterator is made available under the GNU General Public License v3.
 
-Copyright (C) 2019 Trevor Sears
+Copyright (C) 2021 Trevor Sears

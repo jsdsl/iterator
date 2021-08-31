@@ -16,8 +16,22 @@
 		"url": "git+https://github.com/jsdsl/iterator.git"
 	},
 	"keywords": [
+		"typescript",
 		"iteration",
-		"iterator"
+		"iterator",
+		"iterators",
+		"iterable",
+		"iterables",
+		"async-iterator",
+		"async-iterators",
+		"async-iteration",
+		"async-iterable",
+		"async-iterables",
+		"for-each",
+		"for-in",
+		"for-of",
+		"for-await",
+		"for-await-of"
 	],
 	"author": "Trevor Sears <trevor@trevorsears.com> (https://trevorsears.com/)",
 	"license": "GPL-3.0-or-later",

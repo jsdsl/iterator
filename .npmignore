@@ -22,4 +22,3 @@ mkdocs.yml
 .npmignore
 gulpfile.js
 jest.config.js
-logo.svg

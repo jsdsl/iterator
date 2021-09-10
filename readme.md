@@ -1,8 +1,8 @@
 # JSDSL - Iterator
+
 A collection of classes that allow iteration over a predefined collection of elements.
 
 ### [Find @jsdsl/iterator on NPM.](https://www.npmjs.com/package/@jsdsl/iterator)
-
 
 ## Table of Contents
 
@@ -12,7 +12,9 @@ A collection of classes that allow iteration over a predefined collection of ele
  - [License](#license)
 
 ## Installation
+
 Install from NPM with
+
 ```
 $ npm install --save @jsdsl/iterator
 ```
@@ -78,6 +80,7 @@ for (let element of new MyIterable()) { ... }
 See the [wiki](https://github.com/jsdsl/iterator/wiki) for full documentation.
 
 ## License
+
 @jsdsl/iterator is made available under the GNU General Public License v3.
 
 Copyright (C) 2021 Trevor Sears

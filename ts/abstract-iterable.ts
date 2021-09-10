@@ -33,7 +33,7 @@ import { Iterable } from "./iterable";
  * exhausted. Can be set to 'void' in the case that this AbstractIterable has infinite content. Defaults to `undefined`.
  * 
  * @author Trevor Sears <trevor@trevorsears.com>
- * @version v1.0.0
+ * @version v1.1.0
  * @since v0.1.0
  */
 export abstract class AbstractIterable<E, U = undefined> implements Iterable<E, U> {
@@ -53,7 +53,34 @@ export abstract class AbstractIterable<E, U = undefined> implements Iterable<E, 
 	 */
 	public [Symbol.iterator](): IterableIterator<E> {
 		
-		return this.iterator()[Symbol.iterator]();
+		return new class implements IterableIterator<E> {
+			
+			private iterator: Iterator<E, U>;
+			
+			public constructor(iterable: Iterable<E, U>) {
+				
+				this.iterator = iterable.iterator();
+				
+			}
+			
+			public [Symbol.iterator](): IterableIterator<E> {
+				
+				return this;
+				
+			}
+			
+			public next(): IteratorResult<E> {
+				
+				return {
+					
+					done: !this.iterator.hasNext(),
+					value: this.iterator.next() as E
+					
+				};
+				
+			}
+			
+		}(this);
 		
 	}
 	
